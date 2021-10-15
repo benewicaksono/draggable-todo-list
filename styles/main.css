@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: var(--clr-dark);
+}
+
+:root {
+    --clr-light: #fff;
+    --clr-dark: #0f1d2e;
+    --clr-accent: #ee213a;
+    --clr-brdr-mtd: rgb(151, 154, 155, 0.5);
+    --clr-red: rgb(255, 115, 105, 0.5);
+    --clr-yellow: rgb(255, 220, 73, 0.5);
+    --clr-green: rgb(77, 171, 154, 0.5);
+    --clr-card-hvr: rgb(151, 154, 155, 0.2);
+    --clr-txt-grey: #9b9a97;
+    --clr-blue : rgb(82,156,202,0.5);
+    --clr-darkblue: #529CCA;
+}
+
+body {
+    max-width: 96%;
+    margin: auto;
+    background-color: var(--clr-light);
+}
+
+nav {
+    position: fixed;
+    background-color: var(--clr-light);
+    top: 0;
+    z-index: 1;
+    width: 96%;
+    display: block;
+}
+
+nav ul {
+    padding: 0.5rem 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
+ul li {
+    list-style: none;
+    margin-left: 3rem;
+}
+
+li a {
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    cursor: pointer;
+}
+
+#Web-Logo:first-child {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+#Web-Logo:first-child a {
+    font-weight: 600;
+}
+
+/* modal */
+.modal-close {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: .5rem;
+    scale: 1.5;
+    opacity: 0.5;
+}
+
+.modal {
+    width: 30rem;
+    position: fixed;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: top 0.3s ease-in-out;
+    border: 1px solid var(--clr-brdr-mtd);
+    border-radius: 0.3rem;
+    z-index: 3;
+    background-color: #fff;
+}
+
+.modal-title {
+    margin-left: .5rem;
+}
+
+.modal.active {
+    top: 40%;
+}
+
+.modal .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--clr-brdr-mtd);
+    padding: .8rem .5rem;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal .body {
+    padding: 0.75rem;
+}
+
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-dark);
+    opacity: .3;
+    z-index: 2;
+}
+
+#overlay.active {
+    display: block;
+}
+
+input[type=text] {
+    width: 100%;
+    font-weight: 300;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border: 1px solid var(--clr-brdr-mtd);
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    font-weight: 300;
+    font-size: .85rem;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border: 1px solid var(--clr-brdr-mtd);
+}
+
+input[type=submit] {
+    width: 100%;
+    font-weight: 400;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border: 1px solid var(--clr-brdr-mtd);
+    color: var(--clr-light);
+    background-color: var(--clr-darkblue);
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    color: var(--clr-dark);
+    background-color: var(--clr-blue);
+}
+
+#todos {
+    height: 100vh !important;
+    width: 90%;
+    margin: auto;
+    padding-top: 4%;
+}
+
+h1 {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--clr-brdr-mtd);
+}
+
+#todo-table {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 8rem);
+}
+
+.status {
+    width: calc(100% / 4 - 0.8rem);
+}
+
+.status-head {
+    display: flex;
+}
+
+.status h3 {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1rem 0.4rem;
+    width: max-content;
+    padding: 0 0.4rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.status-head p {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 1rem 0.4rem;
+    width: max-content;
+    border-radius: 0.2rem;
+    color: var(--clr-txt-grey);
+}
+
+#noStatus h3 {
+    background-color: var(--clr-brdr-mtd);
+}
+
+#notStarted h3 {
+    background-color: var(--clr-red);
+}
+
+#inProgress h3 {
+    background-color: var(--clr-yellow);
+}
+
+#completed h3 {
+    background-color: var(--clr-green);
+}
+
+.todo {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid var(--clr-brdr-mtd);
+    background-color: var(--clr-light);
+    cursor: pointer;
+}
+
+.todo:hover {
+    background-color: var(--clr-card-hvr);
+}
+
+.card-head {
+    display: flex;
+}
+
+.todo-edit {
+    cursor: pointer;
+    margin-left: auto;
+    margin-top: .2rem;
+    scale: .8;
+    opacity: 0.5;
+}
+
+.todo-delete {
+    cursor: pointer;
+    margin-left: .5rem;
+    margin-top: .2rem;
+    scale: .8;
+    opacity: 0.5;
+}
+
+.todo-edit:hover, .todo-delete:hover {
+    opacity: 1;
+}
+
+.todo h4 {
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.todo h4:hover {
+    overflow: auto;
+}
+
+.todo pre {
+    font-weight: 300;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.todo pre:hover {
+    overflow: auto;
+}
+
+.add-card {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    display: flex;
+    background-color: transparent;
+    border: 0;
+}
+
+.add-card:hover {
+    background-color: var(--clr-card-hvr);
+}
+
+.add-icon {
+    cursor: pointer;
+    margin-right: .5rem;
+    margin-top: .25rem;
+    scale: .8;
+    opacity: 0.5;
+}
+
+.add-card h4 {
+    font-weight: 500;
+    color: var(--clr-txt-grey);
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        margin-top: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--clr-brdr-mtd);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        margin-top: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--clr-brdr-mtd);
+    }
+
+    #todo-table {
+        display: block;
+    }
+
+    #completed .add-card {
+        margin-bottom: 2rem;
+    }
+
+    .status {
+        width: 100%;
+    }
+}

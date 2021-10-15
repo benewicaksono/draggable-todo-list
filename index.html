@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/main.css">
+        <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet" />
+        <title>Noto | Easy way to plan your schedule.</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li id="Web-Logo"><a href="/">Noto</a></li>
+                    <li><a id="clearAll">Clear All</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="modal" id="new-form">
+            <div class="header">
+                <div class="modal-title">New Todo</div>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="body">
+                <form id="form-todo">
+                    <input type="text" placeholder="Title" id="form-title" required="required"/>
+                    <textarea placeholder="Description" id="form-body"></textarea>
+                    <input type="submit" value="Add" id="form-submit"/>
+                </form>
+            </div>
+        </div>
+        <div class="modal" id="edit-form">
+            <div class="header">
+                <div class="modal-title">Edit Todo</div>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="body">
+                <form id="edit-todo">
+                    <input type="text" placeholder="Title" id="edit-title" required="required"/>
+                    <textarea placeholder="Description" id="edit-body"></textarea>
+                    <input type="submit" value="Edit" id="edit-submit"/>
+                </form>
+            </div>
+        </div>
+        <div id="todos">
+            <h1>Todos</h1>
+            <div id="todo-table">
+                <div class="status" id="noStatus">
+                    <section class="status-head">
+                        <h3>No status</h3>
+                        <p class="counter"></p>
+                    </section>
+                    <div class="todo-contents">
+                    </div>
+                    <button class="add-card" id="add-noStatus" data-target-modal="#new-form">
+                        <i class="fas fa-plus add-icon"></i>
+                        <h4>New</h4>
+                    </button>
+                </div>
+                <div class="status" id="notStarted">
+                    <section class="status-head">
+                        <h3>Not started</h3>
+                        <p class="counter"></p>
+                    </section>
+                    <div class="todo-contents">
+                    </div>
+                    <button class="add-card" id="add-notStarted" data-target-modal="#new-form">
+                        <i class="fas fa-plus add-icon"></i>
+                        <h4>New</h4>
+                    </button>
+                </div>
+                <div class="status" id="inProgress">
+                    <section class="status-head">
+                        <h3>In progress</h3>
+                        <p class="counter"></p>
+                    </section>
+                    <div class="todo-contents">
+
+                    </div>
+                    <button class="add-card" id="add-inProgress" data-target-modal="#new-form">
+                        <i class="fas fa-plus add-icon"></i>
+                        <h4>New</h4>
+                    </button>
+                </div>
+                <div class="status" id="completed">
+                    <section class="status-head">
+                        <h3>Completed</h3>
+                        <p class="counter"></p>
+                    </section>
+                    <div class="todo-contents">
+
+                    </div>
+                    <button class="add-card" id="completed" data-target-modal="#new-form">
+                        <i class="fas fa-plus add-icon"></i>
+                        <h4>New</h4>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay"></div>
+        <script src="scripts/data.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
